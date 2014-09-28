@@ -1,0 +1,1 @@
+web: gunicorn laborbook.wsgi --log-file -
