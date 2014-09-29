@@ -1,0 +1,8 @@
+Category: {{ name }} </br>
+Skills:
+<dl>
+	{% for skill in skills %}
+	<dt>{{ skill.getSkillHTML}}</dt>
+	<dd>{{ skill.description }}</dd>
+	{% endfor %}
+</dl>

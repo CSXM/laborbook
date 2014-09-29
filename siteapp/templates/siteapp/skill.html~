@@ -1,0 +1,1 @@
+<input class="skill" onclick="{{ select_function_name }}" type="checkbox" name="{{ skill.id }}" value="">{{ skill.name }} {{ level_dropdownbox_html }}
