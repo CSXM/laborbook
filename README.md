@@ -27,9 +27,11 @@ pip install -r requirements.txt
 ```
 
 You need to have a special `DATABASE_URL` system variable set in format
-    DATABASE_URL=postgres://username:password@host:port/database
+DATABASE_URL=postgres://username:password@host:port/database
 For example:
-    export DATABASE_URL=postgres://me:mypass@localhost:5432/laborbook
+```
+export DATABASE_URL=postgres://me:mypass@localhost:5432/laborbook
+```
 
 For conveniency you want might create a shell script for this for example in `venv/bin/local_dev.sh` and source that as well after sourcing `venv/bin/activate`.
 
@@ -38,14 +40,20 @@ For conveniency you want might create a shell script for this for example in `ve
 You need to have a special `LABORBOOK_SECRET_KEY` system variable with unique 50 characters long string. The variable name is fixed in `settings.py` and should be changed accordingly in your own project.
 
 Now to create and migrate the database and create django admin superuser:
-    python manage.py migrate
-    python manage.py createsuperuser
+```
+python manage.py migrate
+python manage.py createsuperuser
+```
 Enter your name, email address and password twice.
 
 You should now be able to run the built-in django server:
-    python manage.py runserver
+```
+python manage.py runserver
+```
 Or if django_extensions is listed in `ISTALLED_APPS` in `settings.py` you can run a better server for debugging purposes:
-    python manage.py runserver_plus
+```
+python manage.py runserver_plus
+```
 
 You can now access the laborbook and its admin page in:
 http://127.0.0.1:8000
