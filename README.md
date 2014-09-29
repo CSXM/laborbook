@@ -41,8 +41,8 @@ You need to have a special `LABORBOOK_SECRET_KEY` system variable with unique 50
 
 Now to create and migrate the database and create django admin superuser:
 ```
-python manage.py createsuperuser
 python manage.py migrate
+python manage.py createsuperuser
 ```
 Enter your name, email address and password twice.
 

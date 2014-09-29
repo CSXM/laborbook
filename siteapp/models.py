@@ -5,9 +5,12 @@ from django.template import loader, Context
 
 # There can be basically infinite hierarchy of categories
 class Category(models.Model):
+    """ A Category for Skills
+    """
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=255, blank=True)
     parent_category = models.ForeignKey("self", null=True, blank=True, default=None)
+    is_root = models.BooleanField(default=False)
 
     def getSkills(self):
         return Skill.objects.filter(category__id=self.id).order_by('name')
@@ -28,6 +31,8 @@ class Category(models.Model):
 # Used to map certain type of skill levels to skills
 # E.g. "Numeric", "String", "Grade", ...
 class SkillLevelType(models.Model):
+    """ Type of Skill Levels.
+    """
     name = models.CharField(max_length=20)
 
     def __unicode__(self):
@@ -35,6 +40,8 @@ class SkillLevelType(models.Model):
 
 # Levels per level type
 class SkillLevel(models.Model):
+    """ Level of the skill
+    """
     level = models.CharField(max_length=50)
     skill_level_type = models.ForeignKey(SkillLevelType)
 
@@ -44,6 +51,8 @@ class SkillLevel(models.Model):
 # Skills. Can be under any category,
 # Each skill should determine which type of level can be defined for it
 class Skill(models.Model):
+    """ Skill. Belongs to a category. Specifies type of skill levels. May have a description.
+    """
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=255, blank=True)
     skill_level_type = models.ForeignKey(SkillLevelType)
