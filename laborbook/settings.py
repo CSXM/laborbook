@@ -110,6 +110,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    # Django extensions
     'django_extensions',
 
     'django.contrib.auth',
@@ -123,6 +124,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+
+    # Django debug toolbar
+    'debug_toolbar.apps.DebugToolbarConfig',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -15,12 +15,20 @@ class Category(models.Model):
     def getSkills(self):
         return Skill.objects.filter(category__id=self.id).order_by('name')
 
-    def getCategoryHTML(self):
+    def getSubcategories(self):
+        return Category.objects.filter(parent_category__id=self.id).order_by('name')
+
+    def getCategoryHTML(self, level=1, traverse=True, hide_top_level=False):
         template = loader.get_template('siteapp/category.html')
         context = Context(
             {
                 'name': self.name,
-                'skills': self.getSkills()
+                'skills': self.getSkills(),
+                'subcategories': self.getSubcategories(),
+                'level': level,
+                'next_level': level + 1,
+                'traverse': traverse,
+                'hide_top_level': hide_top_level, # FIXME: Implement logic
             }
         )
         return template.render(context)

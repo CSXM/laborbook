@@ -1,8 +1,18 @@
-Name: {{ name }} </br>
-Skills:
-<dl>
+{% load staticfiles %}
+{% load custom_tags %}
+<div class="category_name">Category: {{ name }} </div>
+
+<dl style="text-indent: {% eval %} {{ level }} * 40 {% endeval %}px">
 	{% for skill in skills %}
 	<dt>{{ skill.getSkillHTML}}</dt>
-	<dd>{{ skill.description }}</dd>
+	<dd class="skill_description">{{ skill.description }}</dd>
 	{% endfor %}
+	{% if traverse %}
+	{% for gategory in subcategories %}
+		<dt>
+		{{ gategory|kwargs:('level', next_level)|call:"getCategoryHTML" }}
+		</dt>
+		<dd class="category_description">{{ category.description }}</dd>
+	{% endfor %}
+	{% endif %}
 </dl>
