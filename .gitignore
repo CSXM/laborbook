@@ -49,3 +49,8 @@ target/
 venv/
 *.pyc
 staticfiles/
+/.project
+*.html~
+*.css~
+*.js~
+
