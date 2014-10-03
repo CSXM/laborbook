@@ -1,5 +1,0 @@
-<select class="level_choice_{{ levels_type }}">
-	{% for level in levels %}
-		<option value="{{ level.id }}">{{ level.level}}</option>
-	{% endfor %}
-</select>
