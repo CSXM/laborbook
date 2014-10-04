@@ -18,7 +18,7 @@ class Category(models.Model):
     def getSubcategories(self):
         return Category.objects.filter(parent_category__id=self.id).order_by('name')
 
-    def getCategoryHTML(self, level=1, traverse=True, hide_top_level=False):
+    def getCategoryHTML(self, level=1, traverse=True, hide_top_level=False, test=False):
         template = loader.get_template('siteapp/category.html')
         context = Context(
             {
@@ -29,6 +29,7 @@ class Category(models.Model):
                 'next_level': level + 1,
                 'traverse': traverse,
                 'hide_top_level': hide_top_level, # FIXME: Implement logic
+                'test': test,
             }
         )
         return template.render(context)

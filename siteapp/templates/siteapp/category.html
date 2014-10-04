@@ -1,5 +1,10 @@
+{% extends test|yesno:"siteapp/test.html,siteapp/empty.html" %}
+
 {% load staticfiles %}
 {% load custom_tags %}
+
+{% block testcontent %}
+
 <div class="category_name">Category: {{ name }} </div>
 
 <dl style="text-indent: {% eval %} {{ level }} * 40 {% endeval %}px">
@@ -10,9 +15,10 @@
 	{% if traverse %}
 	{% for gategory in subcategories %}
 		<dt>
-		{{ gategory|args:next_level|call:"getCategoryHTML" }}
+		{{ gategory|args:next_level|args:traverse|args:hide_top_level|args:False|call:"getCategoryHTML" }}
 		</dt>
 		<dd class="category_description">{{ category.description }}</dd>
 	{% endfor %}
 	{% endif %}
 </dl>
+{% endblock %}
