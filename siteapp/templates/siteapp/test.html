@@ -2,8 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>{% block title %}Laborbook test{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	<title>{% block title %}Laborbook test{% endblock %}</title>
+    
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js" ></script>
+	<script type="text/javascript" src="{% static 'js/simple-expand.min.js' %}"></script>
+    
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$('.expander').simpleexpand();
+		});
+	</script>
 </head>
 {% block testcontent %}{% endblock %}
 <body>

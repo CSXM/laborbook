@@ -10,6 +10,21 @@ label.skill {
 	
 select.level_choice {
 	font-family: sans-serif;
-	font-size: 12px;
-	height: 25px;
+	font-size: 10px;
+	height: 22px;
 	}
+	
+.content {display:none;}
+
+#category_name .expander.expanded {
+	padding-left: 30px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-image: url("../images/toggle_collapse.png");
+}
+
+#category_name .expander.collapsed {
+	padding-left: 30px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-image: url("../images/toggle_expand.png");

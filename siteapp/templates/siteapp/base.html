@@ -1,8 +1,18 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css/style.css" />
-    <title>{% block title %}Laborbook{% endblock %}</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<title>{% block title %}Laborbook{% endblock %}</title>
+    
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js" ></script>
+	<script type="text/javascript" src="{% static 'js/simple-expand.min.js' %}"></script>
+    
+	<script type="text/javascript">
+		jQuery(document).ready(function($){
+			$('.expander').simpleexpand();
+		});
+	</script>
 </head>
 
 <body>

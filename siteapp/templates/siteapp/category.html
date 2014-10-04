@@ -5,13 +5,14 @@
 
 {% block testcontent %}
 
-<div class="category_name">Category: {{ name }} </div>
-
+<div id="category_name" class="category_name">Category: <a class="expander" href="#">{{ name }}</a></div>
+<div class="content">
 <dl style="text-indent: {% eval %} {{ level }} * 40 {% endeval %}px">
 	{% for skill in skills %}
 	<dt>{{ skill.getSkillHTML}}</dt>
 	<dd class="skill_description">{{ skill.description }}</dd>
 	{% endfor %}
+	<br>
 	{% if traverse %}
 	{% for gategory in subcategories %}
 		<dt>
@@ -21,4 +22,5 @@
 	{% endfor %}
 	{% endif %}
 </dl>
+</div>
 {% endblock %}
