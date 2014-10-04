@@ -74,6 +74,6 @@ def getTestViews():
                 links = [x.strip() for x in doc_split[1:]]
                 test_views.append({'name': name, 'url_string': url_string, 'links': links})
         except Exception, e:
-            print e
+            pass
 
     return test_views
