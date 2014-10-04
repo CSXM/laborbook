@@ -1,0 +1,15 @@
+.category_name {
+	font-family: sans-serif;
+	font-size: 12px;
+	}
+	
+label.skill {
+	font-family: sans-serif;
+	font-size: 12px;
+	}	
+	
+select.level_choice {
+	font-family: sans-serif;
+	font-size: 12px;
+	height: 25px;
+	}

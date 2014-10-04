@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>{% block title %}Laborbook{% endblock %}</title>
+</head>
+
+<body>
+	<div id="content">
+		{% block content %}
+			<h2>Laborbook</h2>
+			Implement your own views!
+			<br>
+			Look at the source code.
+		{% endblock %}
+	</div>
+	<br>
+	<div id="testcontent">
+		{% block testcontent %}{% endblock %}
+	</div>
+	
+</body>
