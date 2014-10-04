@@ -39,7 +39,9 @@ For conveniency you want might create a shell script for this for example in `ve
 
 You need to have a special `LABORBOOK_SECRET_KEY` system variable with unique 50 characters long string. The variable name is fixed in `settings.py` and should be changed accordingly in your own project.
 
-Now to create and migrate the database and create django admin superuser:
+Now to create database into PostgreSQL, use the same name as you end the DATABASE_URL with.
+
+Then migrate the database and create django admin superuser:
 ```
 python manage.py migrate
 python manage.py createsuperuser
